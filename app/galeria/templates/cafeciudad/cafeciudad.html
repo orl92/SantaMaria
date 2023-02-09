@@ -1,0 +1,96 @@
+{% extends "galeria.html" %}
+{% load static %}
+
+{% block title %}
+<title>{{ title }}</title>
+{% endblock %}
+
+{% block galeria %}
+   <h1><span>Bar Casablanca</span></h1>
+
+  <section class="galeria" id="gal-casablanca">
+
+    <a href="#img-01">
+      <img src="static/img/casablanca/img-01.jpg" alt=""><i class="bi bi-arrows-angle-expand"></i>
+    </a>
+    <a href="#img-02">
+      <img src="static/img/casablanca/img-02.jpg" alt=""><i class="bi bi-arrows-angle-expand"></i>
+    </a>
+    <a href="#img-03">
+      <img src="static/img/casablanca/img-03.jpg" alt=""><i class="bi bi-arrows-angle-expand"></i>
+    </a>
+    <a href="#img-04">
+      <img src="static/img/casablanca/img-04.jpg" alt=""><i class="bi bi-arrows-angle-expand"></i>
+    </a>
+    <a href="#img-05">
+      <img src="static/img/casablanca/img-05.jpg" alt=""><i class="bi bi-arrows-angle-expand"></i>
+    </a>
+    <a href="#img-06">
+      <img src="static/img/casablanca/img-06.jpg" alt=""><i class="bi bi-arrows-angle-expand"></i>
+    </a>
+    <a href="#img-07">
+      <img src="static/img/casablanca/img-07.jpg" alt=""><i class="bi bi-arrows-angle-expand"></i>
+    </a>
+    <a href="#img-08">
+      <img src="static/img/casablanca/img-08.jpg" alt=""><i class="bi bi-arrows-angle-expand"></i>
+    </a>
+  </section>
+
+  <article class="light-box" id="img-01">
+    <a href="#img-09" class="previous"><i class="bi bi-arrow-left-circle"></i></a>
+    <img src="static/img/casablanca/img-01.jpg" alt="">
+    <a href="#img-02" class="next"><i class="bi bi-arrow-right-circle"></i></a>
+    <a href="#" class="close"><i class="bi bi-x-circle"></i></a>
+  </article>
+
+  <article class="light-box" id="img-02">
+    <a href="#img-01" class="previous"><i class="bi bi-arrow-left-circle"></i></a>
+    <img src="static/img/casablanca/img-02.jpg" alt="">
+    <a href="#img-03" class="next"><i class="bi bi-arrow-right-circle"></i></a>
+    <a href="#" class="close"><i class="bi bi-x-circle"></i></a>
+  </article>
+
+  <article class="light-box" id="img-03">
+    <a href="#img-02" class="previous"><i class="bi bi-arrow-left-circle"></i></a>
+    <img src="static/img/casablanca/img-03.jpg" alt="">
+    <a href="#img-04" class="next"><i class="bi bi-arrow-right-circle"></i></a>
+    <a href="#" class="close"><i class="bi bi-x-circle"></i></a>
+  </article>
+
+  <article class="light-box" id="img-04">
+    <a href="#img-03" class="previous"><i class="bi bi-arrow-left-circle"></i></a>
+    <img src="static/img/casablanca/img-04.jpg" alt="">
+    <a href="#img-05" class="next"><i class="bi bi-arrow-right-circle"></i></a>
+    <a href="#" class="close"><i class="bi bi-x-circle"></i></a>
+  </article>
+
+  <article class="light-box" id="img-05">
+    <a href="#img-04" class="previous"><i class="bi bi-arrow-left-circle"></i></a>
+    <img src="static/img/casablanca/img-05.jpg" alt="">
+    <a href="#img-06" class="next"><i class="bi bi-arrow-right-circle"></i></a>
+    <a href="#" class="close"><i class="bi bi-x-circle"></i></a>
+  </article>
+
+  <article class="light-box" id="img-06">
+    <a href="#img-05" class="previous"><i class="bi bi-arrow-left-circle"></i></a>
+    <img src="static/img/casablanca/img-06.jpg" alt="">
+    <a href="#img-07" class="next"><i class="bi bi-arrow-right-circle"></i></a>
+    <a href="#" class="close"><i class="bi bi-x-circle"></i></a>
+  </article>
+
+  <article class="light-box" id="img-07">
+    <a href="#img-06" class="previous"><i class="bi bi-arrow-left-circle"></i></a>
+    <img src="static/img/casablanca/img-07.jpg" alt="">
+    <a href="#img-08" class="next"><i class="bi bi-arrow-right-circle"></i></a>
+    <a href="#" class="close"><i class="bi bi-x-circle"></i></a>
+  </article>
+
+  <article class="light-box" id="img-08">
+    <a href="#img-07" class="previous"><i class="bi bi-arrow-left-circle"></i></a>
+    <img src="static/img/casablanca/img-08.jpg" alt="">
+    <a href="#img-01" class="next"><i class="bi bi-arrow-right-circle"></i></a>
+    <a href="#" class="close"><i class="bi bi-x-circle"></i></a>
+  </article>
+
+{% endblock %}
+

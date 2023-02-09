@@ -1,0 +1,31 @@
+{% extends "galeria.html" %}
+{% load static %}
+
+{% block title %}
+<title>{{ title }}</title>
+{% endblock %}
+
+{% block galeria %}
+<h1><span>{{ instalacion }}</span></h1>
+
+<section class="galeria" id="gal-casablanca">
+    {% for img in imagenes %}
+    <a href="#img-{{ img.id }}">
+        <img src="{{ img.img.url }}" alt=""><i class="bi bi-arrows-angle-expand"></i>
+    </a>
+    {% endfor %}
+</section>
+{% for s in skip %}
+<article class="light-box" id="img-{{ s.now }}">
+    <a href="#img-{{ s.previous }}" class="previous"><i class="bi bi-arrow-left-circle"></i></a>
+    {% for img in imagenes %}
+    {% if img.id == s.now %}
+    <img src="{{ img.img.url }}" alt="">
+    {% endif %}
+    {% endfor %}
+    <a href="#img-{{ s.next }}" class="next"><i class="bi bi-arrow-right-circle"></i></a>
+    <a href="#" class="close"><i class="bi bi-x-circle"></i></a>
+</article>
+{% endfor %}
+
+{% endblock %}

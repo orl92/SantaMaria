@@ -1,0 +1,86 @@
+{% extends 'dashboard.html' %}
+{% load static %}
+{% block head %}
+
+
+{% block head_list %}
+
+{% endblock %}
+
+{% endblock %}
+
+{% block content %}
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">
+            <img src="{% static 'icon/list-ol.svg' %}" width="20" height="20" alt="icon">
+            {{ title }}
+        </h3>
+    </div>
+    <div class="card-body">
+        <table class="table" id="data">
+            <thead>
+            {% block columns %}
+
+            {% endblock %}
+            </thead>
+            <tbody>
+            {% block rows %}
+
+            {% endblock %}
+            </tbody>
+        </table>
+    </div>
+    <div class="card-footer">
+        <a href="{{ create_url }}" type="button" class="btn btn-outline-primary btn-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-circle"
+                 viewBox="0 0 16 16">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+            </svg>
+            Nuevo registro
+        </a>
+        <a href="{{ list_url }}" type="button" class="btn btn-outline-success btn-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                 class="bi bi-arrow-repeat" viewBox="0 0 16 16">
+                <path d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z"/>
+                <path fill-rule="evenodd"
+                      d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z"/>
+            </svg>
+            Actualizar
+        </a>
+    </div>
+</div>
+{% endblock %}
+
+{% block javascript %}
+<script type="application/javascript">
+        $(function () {
+            $('#data').DataTable({
+                responsive: true,
+                autoWidth: false
+            });
+
+            $('.btnTest').on('click', function () {
+                $.ajax({
+                    url: '{% url 'category_list' %}',
+                    type: 'POST',
+                    data: {id: 1},
+                    dataType: 'json'
+                }).done(function (data) {
+                    console.log(data);
+                }).fail(function (jqXHR, textStatus, errorThrown) {
+                    alert(textStatus + ': ' + errorThrown);
+                }).always(function (data) {
+
+                });
+            });
+        });
+
+
+
+
+
+
+</script>
+{% endblock %}

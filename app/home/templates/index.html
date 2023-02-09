@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="es">
+{% load static %}
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Santa María</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- iconos -->
+    <link href="{% static '' %}img/minilogo.png" rel="icon">
+    <link href="{% static '' %}img/logo.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,|Satisfy&display=swap"
+          rel="stylesheet">
+
+    <!-- css de vendor -->
+    <link href="{% static '' %}vendor/aos/aos.css" rel="stylesheet">
+    <link href="{% static '' %}vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static '' %}vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="{% static '' %}vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="{% static '' %}vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="{% static '' %}vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- css del main del template -->
+    <link href="{% static '' %}css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- ======= barra superior ======= -->
+<section id="topbar" class="d-flex align-items-center">
+    <div class="container d-flex justify-content-center justify-content-md-between">
+        <div class="contacto-info d-flex align-items-center">
+            <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:daikelnicles@gmail.com">daikelniclest@gmail.com</a></i>
+            <i class="bi bi-phone d-flex align-items-center ms-4"><a href="https://wa.me/+5354929900">+53 54 929 900</a></i>
+        </div>
+        <div class="social-links d-none d-md-flex align-items-center">
+            <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+            <a href="https://www.facebook.com/tcsm2017/" class="facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+        </div>
+    </div>
+</section><!-- fin de barra superior-->
+
+<!-- ======= Header ======= -->
+<header id="header" class="d-flex align-items-center">
+    <div class="container d-flex justify-content-between">
+
+        <div id="logo">
+            <a href="{% url 'index' %}"><img src="{% static '' %}img/logo_sm.png" alt=""></a>
+        </div>
+
+        <nav id="navbar" class="navbar">
+            <ul>
+                <li><a class="nav-link scrollto active" href="#inicio">Inicio</a></li>
+                <li><a class="nav-link scrollto" href="#servicios">Servicios</a></li>
+                <li class="dropdown"><a href="#instalaciones"><span>Instalaciones</span> <i
+                        class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li class="dropdown"><a href="#"><span>Gasatronómicas</span> <i class="bi bi-chevron-right"></i></a>
+                            <ul>
+                                <li><a href="{% url 'casablanca' %}">Bar Casablanca</a></li>
+                                <li><a href="{% url 'cafeciudad' %}">Café Ciudad</a></li>
+                                <li><a href="{% url 'isabella' %}">La Isabella</a></li>
+                                <li><a href="#">Casa del Chocolate</a></li>
+                                <li><a href="#">Don Cayetano</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown"><a href="#"><span>Comerciales</span> <i
+                                class="bi bi-chevron-right"></i></a>
+                            <ul>
+                                <li><a href="#">Tienda Rosario</a></li>
+                                <li><a href="#">Tienda 1</a></li>
+                                <li><a href="#">Tienda 2</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown"><a href="#"><span>Alojamiento</span> <i
+                                class="bi bi-chevron-right"></i></a>
+                            <ul>
+                                <li><a href="#">Hotel América</a></li>
+                                <li><a href="#">Alojamiento 1</a></li>
+                                <li><a href="#">Alojamiento 2</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown"><a href="#"><span>Transporte</span> <i class="bi bi-chevron-right"></i></a>
+                            <ul>
+                                <li><a href="#">Andariegos</a></li>
+                                <li><a href="#">Transporte 1</a></li>
+                                <li><a href="#">Transporte 2</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a class="nav-link scrollto" href="#reserva">Resevar</a></li>
+                <li><a class="nav-link scrollto" href="#contact">Contáctenos</a></li>
+
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav><!-- .navbar -->
+
+    </div>
+</header><!-- fin del Header -->
+
+<!-- ======= inicio ======= -->
+<section id="inicio">
+
+    <div class="inicio-content" data-aos="fade-up">
+        <h2>QUÉ NO TE LO CUENTEN</h2>
+        <h2><span>Ven y descúbrelo tú mismo.</span></h2>
+
+        {% if request.user.is_authenticated %}
+
+        <h3>Bienvenido {{ request.user.username }}</h3>
+        <a href="{% url 'logout' %}" class="btn-salir">Salir</a>
+        {% else %}
+        <div>
+            <a href="{% url 'login' %}" class="btn-inicio">Iniciar sesión</a>
+            <a href="#" class="btn-registro">Registrarse</a>
+        </div>
+        {% endif %}
+    </div>
+
+
+    <div class="inicio-slider swiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide" style="background-image: url('{% static '' %}img/hero-carousel/1.jpg');"></div>
+            <div class="swiper-slide" style="background-image: url('{% static '' %}img/hero-carousel/2.jpg');"></div>
+            <div class="swiper-slide" style="background-image: url('{% static '' %}img/hero-carousel/3.jpg');"></div>
+            <div class="swiper-slide" style="background-image: url('{% static '' %}img/hero-carousel/4.jpg');"></div>
+            <div class="swiper-slide" style="background-image: url('{% static '' %}img/hero-carousel/5.jpg');"></div>
+        </div>
+    </div>
+
+</section><!-- fin del inicio -->
+
+<main id="main">
+
+    <!-- ======= informacion ======= -->
+    <section id="info">
+        <div class="container" data-aos="fade-up">
+            <div class="row">
+                <div class="col-lg-6 info-img">
+                    <img src="{% static '' %}img/about-img.jpg" alt="">
+                </div>
+
+                <div class="col-lg-6 content">
+                    <h2>Quiénes somos?</h2>
+                    <h3>Somos la Empresa Provincial de Turismo de Ciudad Santa María de la localidad de Camagüey.</h3>
+
+                    <ul>
+                        <li><i class="bi bi-check-circle"></i> Nuestra Misión es satisfacer las expectativas de nuestros
+                            clientes brindando un producto turístico integral en la ciudad de Camagüey para el disfrute
+                            de las tradiciones y valores patrimoniales.
+                        </li>
+                        <li><i class="bi bi-check-circle"></i> Nuestra Visión es ofrecer un producto turistico único en
+                            la ciudad de Camagüey. Convertimos en placer los deseos de nuestros clientes.
+                        </li>
+                        <li><i class="bi bi-check-circle"></i> Los Valores que nos caracterizan como empresa son la
+                            reciliencia, esfuerzo, sacrificio, saber sobreponernos a las dificultades que puedan surgir.
+                            Pero sobre todo nos caracterizamos por el compromiso y seguridad que ofrecemos a nuestros
+                            clientes en cada una de nuestras instalaciones.
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+
+        </div>
+    </section><!-- fin de informacion  -->
+
+    <!-- ======= Servicios ======= -->
+    <section id="servicios">
+        <div class="container" data-aos="fade-up">
+            <div class="section-header">
+                <h2>Qué ofrecemos?</h2>
+                <p>Disponemos de varios servicios especializados para satisfacer sus necesidades. Caracterizándonos por
+                    la exelencia, la eficacia y eficiencia a la hora de prestar los mismos.</p>
+            </div>
+
+            <div class="row gy-4">
+
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="box">
+                        <div class="icon"><i class="bi bi-briefcase"></i></div>
+                        <h4 class="title"><a href="">Gastronomía</a></h4>
+                        <p class="description">Contamos con variedad de restaurantes, cafeterías y bares en los que
+                            puede disfrutar de un momento inolvidable con sus familiares y amigos.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="box">
+                        <div class="icon"><i class="bi bi-card-checklist"></i></div>
+                        <h4 class="title"><a href="">Comercio</a></h4>
+                        <p class="description">Aquí no se que poner.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="box">
+                        <div class="icon"><i class="bi bi-bar-chart"></i></div>
+                        <h4 class="title"><a href="">Alojamiento</a></h4>
+                        <p class="description">En el Hotel América encontrarás el confort que deseas, además de la
+                            atención y hospitalidad de sus trabajadores.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="box">
+                        <div class="icon"><i class="bi bi-binoculars"></i></div>
+                        <h4 class="title"><a href="">Transporte</a></h4>
+                        <p class="description">Recorre nuestra ciudad de Camagüey en nuestros bicitaxis "Andariegos",
+                            visita lugares historicos y demás contando todo el tiempo con la comodidad y seguridad que
+                            necesitas.</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section><!-- fin de servicios -->
+
+    <!-- ======= instalaciones ======= -->
+    <section id="instalaciones">
+        <div class="container" data-aos="fade-up">
+            <div class="section-header">
+                <h2>Nuestras instalaciones</h2>
+                <p>En estas instalaciones obtendrás acceso a nuestros servicios. Échale un vistazo a su confort.</p>
+            </div>
+
+            <div class="instalaciones-slider swiper" data-aos="fade-up" data-aos-delay="100">
+                <div class="swiper-wrapper align-items-center">
+                    <div class="swiper-slide"><a href="{% url 'casablanca' %}">
+                        <img src="{% static '' %}img/instalaciones/client-1.png" class="img-fluid" alt=""></a></div>
+                    <div class="swiper-slide"><a href="#">
+                        <img src="{% static '' %}img/instalaciones/client-2.png" class="img-fluid" alt=""></a></div>
+                    <div class="swiper-slide"><a href="#">
+                        <img src="{% static '' %}img/instalaciones/client-3.png" class="img-fluid" alt=""></a></div>
+                    <div class="swiper-slide"><a href="#">
+                        <img src="{% static '' %}img/instalaciones/client-4.png" class="img-fluid" alt=""></a></div>
+                    <div class="swiper-slide"><a href="#">
+                        <img src="{% static '' %}img/instalaciones/client-5.png" class="img-fluid" alt=""></a></div>
+                    <div class="swiper-slide"><a href="#">
+                        <img src="{% static '' %}img/instalaciones/client-6.png" class="img-fluid" alt=""></a></div>
+                    <div class="swiper-slide"><a href="#">
+                        <img src="{% static '' %}img/instalaciones/client-7.png" class="img-fluid" alt=""></a></div>
+                    <div class="swiper-slide"><a href="#">
+                        <img src="{% static '' %}img/instalaciones/client-8.png" class="img-fluid" alt=""></a></div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+
+        </div>
+    </section><!-- fin de locales -->
+
+    <!-- ======= reservaciones ======= -->
+    <section id="reserva" class="reserva">
+        <div class="container" data-aos="fade-up">
+            <div class="section-header">
+                <h2>reservaciones</h2>
+                <p>Qué esperas? Reserva y visita nuestras instalaciones con tus seres queridos.</p>
+            </div>
+
+            <div class="row g-0">
+
+                <div class="col-lg-4 reservation-img" style="background-image: url({% static '' %}img/reservation.jpg);"
+                     data-aos="zoom-out" data-aos-delay="200"></div>
+
+                <div class="col-lg-8 d-flex align-items-center reservation-form-bg">
+                    <form action="forms/reserva.php" method="post" role="form" class="php-email-form" data-aos="fade-up"
+                          data-aos-delay="100">
+                        <div class="row gy-4">
+
+                            <div class="col-lg-4 col-md-6">
+                                <input type="text" name="name" class="form-control" id="name" placeholder="Su nombre"
+                                       data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+                                <div class="validate"></div>
+                            </div>
+
+                            <div class="col-lg-4 col-md-6">
+                                <input type="text" class="form-control" name="phone" id="phone"
+                                       placeholder="Su número de teléfono" data-rule="minlen:4"
+                                       data-msg="Please enter at least 4 chars">
+                                <div class="validate"></div>
+                            </div>
+
+                            <div class="col-lg-4 col-md-6">
+                                <input type="number" class="form-control" name="people" id="people"
+                                       placeholder="Cantidad de personas" data-rule="minlen:1"
+                                       data-msg="Please enter at least 1 chars">
+                                <div class="validate"></div>
+                            </div>
+
+                            <div class="col-lg-4 col-md-6">
+                                <input type="time" class="form-control">
+                                <div class="validate"></div>
+                            </div>
+
+                            <div class="col-lg-4 col-md-6">
+                                <input type="date" class="form-control">
+                                <div class="validate"></div>
+                            </div>
+
+                            <div class="col-lg-4 col-md-6">
+                                <select class="form-control">
+                                    <option value="" disabled selected>
+                                        Seleccione el lugar
+                                    </option>
+                                    <option value="">
+                                        Bar Casablanca
+                                    </option>
+                                    <option value="">
+                                        Café Ciudad
+                                    </option>
+                                    <option value="">
+                                        La Isabella
+                                    </option>
+                                    <option value="">
+                                        La Casa del Tabaco
+                                    </option>
+                                    <div class="validate"></div>
+                                </select>
+                            </div>
+
+                            <div class="form-group mt-3">
+                                <textarea class="form-control" name="message" rows="5" placeholder="Mensaje"></textarea>
+                                <div class="validate"></div>
+                            </div>
+
+                            <div class="mb-3">
+                                <div class="loading">Espere...</div>
+                                <div class="error-message"></div>
+                                <div class="sent-message">Su reservación a sido enviada. Espere un mensaje con la
+                                    confirmación de la misma. Gracias por elegirnos!
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit">Estamos trabajando en ello :)</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section><!-- fin de reservaciones -->
+
+
+    <!-- ======= contacto ======= -->
+    <section id="contact">
+        <div class="container" data-aos="fade-up">
+            <div class="section-header">
+                <h2>Contáctenos</h2>
+                <p>Póngase en contacto con nuestro equipo de trabajo, ellos satisfacerán sus dudas sobre nuestra
+                    instalación amablemente</p>
+            </div>
+
+            <div class="row contacto-info">
+
+                <div class="col-md-4">
+                    <div class="contacto-address">
+                        <i class="bi bi-geo-alt"></i>
+                        <h3>Dirección</h3>
+                        <address>Avellaneda #72 Camagüey, Cuba</address>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="contacto-phone">
+                        <i class="bi bi-phone"></i>
+                        <h3>Número de teléfono</h3>
+                        <p><a href="tel:+5332243663">+53 32 243 663</a></p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="contacto-email">
+                        <i class="bi bi-envelope"></i>
+                        <h3>Correo</h3>
+                        <p><a href="mailto:rhpalacios66@gmail.com">rhpalacios66@gmail.com</a></p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="container mb-4">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3715.2188546275124!2d-77.92013677729074!3d21.38128563565488!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ed380655e850c3b%3A0xc177c09e6811add8!2s93JM%2BFPW%2C%20Avellaneda%2C%20Camag%C3%BCey!5e0!3m2!1ses!2scu!4v1674144973761!5m2!1ses!2scu"
+                    width="100%" height="380" style="border:0; border-radius: 5px;" allowfullscreen></iframe>
+        </div>
+
+        <div class="container">
+            <div class="form">
+                <form action="forms/contacto.php" method="post" role="form" class="php-email-form">
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <input type="text" name="name" class="form-control" id="username" placeholder="Su nombre"
+                                   required>
+                        </div>
+                        <div class="form-group col-md-6 mt-3 mt-md-0">
+                            <input type="email" class="form-control" name="email" id="email" placeholder="Su correo"
+                                   required>
+                        </div>
+                    </div>
+                    <div class="form-group mt-3">
+                        <input type="text" class="form-control" name="subject" id="subject" placeholder="Asunto"
+                               required>
+                    </div>
+                    <div class="form-group mt-3">
+                        <textarea class="form-control" name="message" rows="5" placeholder="Mensaje"
+                                  required></textarea>
+                    </div>
+
+                    <div class="my-3">
+                        <div class="loading">Espere...</div>
+                        <div class="error-message"></div>
+                        <div class="sent-message">Su mensaje ha sido enviado. Gracias!</div>
+                    </div>
+
+                    <div class="text-center">
+                        <button type="submit">Enviar Mensaje</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </section><!-- fin de contactos -->
+
+</main><!-- fin del #main -->
+
+<!-- ======= footer ======= -->
+<footer id="footer">
+    <div class="container">
+        <div class="copyright">
+            &copy; Copyright <strong>Santa María</strong>.
+        </div>
+        <div class="credits">
+            Diseñado por <a href="https://wa.me/5354929900">Daikel Nicles</a>
+        </div>
+    </div>
+</footer><!-- fin del footer -->
+
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+        class="bi bi-arrow-up-short"></i></a>
+
+<!-- js de vendor -->
+<script src="{% static '' %}vendor/aos/aos.js"></script>
+<script src="{% static '' %}vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="{% static '' %}vendor/glightbox/js/glightbox.min.js"></script>
+<script src="{% static '' %}vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<script src="{% static '' %}vendor/swiper/swiper-bundle.min.js"></script>
+<script src="{% static '' %}vendor/php-email-form/validate.js"></script>
+
+<!-- js del main del template -->
+<script src="{% static '' %}js/main.js"></script>
+
+</body>
+
+</html>
