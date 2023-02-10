@@ -26,7 +26,7 @@ class InstalacionForm(ModelForm):
         if name.isalpha():
             pass
         else:
-            self.add_error('name', 'El Nombre de la categoría no puede contener números o caracteres especiales.')
+            self.add_error('name', 'El nombre no puede contener números o caracteres especiales.')
         try:
             id = self.initial['id']
         except Exception:
@@ -36,7 +36,7 @@ class InstalacionForm(ModelForm):
                 pass
             else:
                 if name.upper() == c.name.upper():
-                    self.add_error('name', ' Ya existe Categoria con este Nombre.')
+                    self.add_error('name', ' Ya existe una categoría con ese nombre.')
 
         return cleand
 

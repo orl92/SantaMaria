@@ -82,7 +82,7 @@ class ImagenListView(ListView):
         context['title'] = 'Listado de Categorías'
         context['create_url'] = reverse_lazy('imagen_create')
         context['list_url'] = reverse_lazy('imagen_list')
-        context['entity'] = 'Categorias'
+        context['entity'] = 'Categorías'
         context['entity2'] = 'Instalaciones'
         return context
 
@@ -112,8 +112,8 @@ class ImagenCreateView(CreateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Creación una Categoria'
-        context['entity'] = 'Categorias'
+        context['title'] = 'Añadir categorías'
+        context['entity'] = 'Categorías'
         context['list_url'] = reverse_lazy('imagen_list')
         context['action'] = 'add'
 
@@ -146,8 +146,8 @@ class ImagenUpdateView(UpdateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Edición una Categoria'
-        context['entity'] = 'Categorias'
+        context['title'] = 'Editar categorías'
+        context['entity'] = 'Categorías'
         context['list_url'] = reverse_lazy('imagen_list')
         context['action'] = 'edit'
         return context
@@ -174,8 +174,8 @@ class ImagenDeleteView(DeleteView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Eliminación de una Categoria'
-        context['entity'] = 'Categorias'
+        context['title'] = 'Eliminar categorías'
+        context['entity'] = 'Categorías'
         context['list_url'] = reverse_lazy('imagen_list')
         return context
 
@@ -208,7 +208,7 @@ class InstalacionListView(ListView):
         context['title'] = 'Listado de Categorías'
         context['create_url'] = reverse_lazy('instalacion_create')
         context['list_url'] = reverse_lazy('instalacion_list')
-        context['entity'] = 'Categorias'
+        context['entity'] = 'Categorías'
         return context
 
 
@@ -237,8 +237,8 @@ class InstalacionCreateView(CreateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Creación una Categoria'
-        context['entity'] = 'Categorias'
+        context['title'] = 'Añadir categorías'
+        context['entity'] = 'Categorías'
         context['list_url'] = reverse_lazy('instalacion_list')
         context['action'] = 'add'
         return context
@@ -270,8 +270,8 @@ class InstalacionUpdateView(UpdateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Edición una Categoria'
-        context['entity'] = 'Instalacionees'
+        context['title'] = 'Editar categorías'
+        context['entity'] = 'Instalaciones'
         context['list_url'] = reverse_lazy('instalacion_list')
         context['action'] = 'edit'
         return context
@@ -298,7 +298,7 @@ class InstalacionDeleteView(DeleteView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Eliminación de una Categoria'
-        context['entity'] = 'Categorias'
+        context['title'] = 'Eliminar categorías'
+        context['entity'] = 'Categorías'
         context['list_url'] = reverse_lazy('instalacion_list')
         return context
